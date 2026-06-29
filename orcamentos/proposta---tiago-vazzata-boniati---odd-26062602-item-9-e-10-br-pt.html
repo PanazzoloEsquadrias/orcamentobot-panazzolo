@@ -232,6 +232,8 @@ body.hb{padding-top:72px;}
 .btn-ver-mais:not(.aberto){animation:piscaDetalhes 1.6s ease-in-out infinite;}
 .btn-desenho{background:var(--cinza);border:none;color:var(--am);padding:5px 12px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;width:100%;text-align:center;}
 .btn-desenho:hover{background:#444;}
+@keyframes piscaDesenho{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.85);}50%{box-shadow:0 0 0 7px rgba(192,57,43,0);}}
+.btn-desenho{animation:piscaDesenho 1.6s ease-in-out infinite;}
 .item-details{display:none;grid-column:1/-1;padding:12px 16px 14px 52px;border-top:2px dashed rgba(240,192,48,.5);}
 .item-details.open{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;}
 .detail-row label{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--tx2);display:block;margin-bottom:2px;}
@@ -294,6 +296,10 @@ body.hb{padding-top:72px;}
 .linkrow .bq,.qs-linkrow .bq{flex:1 1 calc(50% - 8px);min-width:calc(50% - 8px);}
 .qs-content{padding:20px 18px 14px;}
 .dado-extra-mobile{display:none;}
+.dado-compacto-mobile{padding-top:2px!important;padding-bottom:2px!important;font-size:11px;}
+.dado-compacto-mobile label{font-size:9px;}
+.bloco-itens{margin:0;padding:0;}
+body{overflow-x:hidden;}
 }
 
 </style></head><body>
@@ -422,10 +428,10 @@ Contando com um atendimento personalizado aos seus clientes e com garantia de 10
 <div class="dg">
 <div class="di"><label>Cliente</label><span>Tiago Vazzata Boniati</span></div>
 <div class="di"><label>Telefone</label><span></span></div>
-<div class="di dado-extra-mobile"><label>Solicitante</label><span>Ramirez Rizzotto</span></div>
-<div class="di dado-extra-mobile"><label>Telefone</label><span>54 98113-3113</span></div>
-<div class="di dado-extra-mobile"><label>Cidade</label><span>Passos de Torres/SC</span></div>
-<div class="di di2col dado-extra-mobile">
+<div class="di dado-compacto-mobile"><label>Solicitante</label><span>Ramirez Rizzotto</span></div>
+<div class="di dado-compacto-mobile"><label>Telefone</label><span>54 98113-3113</span></div>
+<div class="di dado-compacto-mobile"><label>Cidade</label><span>Passos de Torres/SC</span></div>
+<div class="di di2col dado-compacto-mobile">
 <div><label>Obra</label><span>Tiago Vazzata  Boniatti</span></div>
 <div><label>Validade</label><span>07 dias</span></div>
 </div>
@@ -444,7 +450,7 @@ Contando com um atendimento personalizado aos seus clientes e com garantia de 10
 </div></div>
 <div class="bloco-itens">
 <div class="ib"><div class="ibi"><div>
-<div class="ibt">&#128269; Confira o que foi <span>realmente orçado</span></div>
+<div class="ibt">&#128269; Confira o que foi <span>orçado</span></div>
 <div class="ibf">Verifique cada item: <strong>quantidades, tipo de vidro, acabamento e medidas.</strong>
 Clique em <strong>Detalhes</strong> para especificações ou <strong>Desenho</strong> para ver o projeto.</div>
 </div><div class="ibr dado-extra-mobile"><div class="ibl">Total do Orçamento</div>
