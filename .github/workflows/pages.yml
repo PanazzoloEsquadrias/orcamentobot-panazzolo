@@ -23,6 +23,15 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
+        with:
+          # Sem isso, o GitHub baixa TODO o histórico de commits do repo a
+          # cada deploy - e como esse repositório acumula cada orçamento
+          # publicado desde o início (vários MB cada), o histórico fica
+          # pesado e o checkout sozinho pode demorar minutos. Com
+          # fetch-depth: 1, só baixa o snapshot atual dos arquivos, sem
+          # história - muito mais rápido, e não precisamos do histórico
+          # pra publicar o site.
+          fetch-depth: 1
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
