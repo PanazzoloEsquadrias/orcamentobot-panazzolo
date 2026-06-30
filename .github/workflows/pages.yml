@@ -12,7 +12,12 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  # Antes estava como "false": se uma execução anterior ficasse travada (ex:
+  # repo grande demais, runner lento), TODOS os pushes seguintes ficavam
+  # enfileirados esperando ela terminar - e nunca terminava. Com "true", um
+  # push novo cancela a execução anterior em andamento e assume na hora -
+  # sempre publica o orçamento mais recente, em vez de empilhar a fila.
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -20,6 +25,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    # Limite de segurança: se algo travar (ex: repo gigante, runner lento),
+    # essa execução é encerrada sozinha em 5 minutos em vez de ficar presa
+    # indefinidamente e atrapalhar os próximos envios.
+    timeout-minutes: 5
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
